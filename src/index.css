@@ -1,0 +1,83 @@
+/* Page background (optional) */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace, sans-serif;
+}
+
+/* Main container */
+.stop-watch {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Time display */
+.display {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #203a43;
+  margin-bottom: 25px;
+}
+
+/* Controls layout */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Buttons (common) */
+.controls button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Start button */
+.start-button {
+  background-color: #22c55e;
+  color: white;
+}
+
+.start-button:hover {
+  background-color: #16a34a;
+}
+
+/* Stop button */
+.stop-button {
+  background-color: #ef4444;
+  color: white;
+}
+
+.stop-button:hover {
+  background-color: #dc2626;
+}
+
+/* Reset button */
+.reset-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #2563eb;
+}
+
+/* Button press effect */
+.controls button:active {
+  transform: scale(0.96);
+}
