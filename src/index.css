@@ -1,83 +1,126 @@
-/* Page background (optional) */
+:root {
+  --bg-1: #0b0f1a;
+  --bg-2: #12192c;
+
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.18);
+
+  --text-main: #eaf0ff;
+
+  --green: #3aff8f;
+  --red: #ff5c5c;
+  --blue: #4f8cff;
+}
+
+/* ===== Page background ===== */
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background:
+    radial-gradient(circle at top left, #1b2450, transparent 60%),
+    radial-gradient(circle at bottom right, #0a3a2a, transparent 60%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: monospace, sans-serif;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-main);
 }
 
-/* Main container */
+/* ===== Main container ===== */
 .stop-watch {
-  background: #ffffff;
-  padding: 30px 40px;
-  border-radius: 16px;
-  width: 320px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  width: 340px;
+  padding: 32px;
+
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid var(--card-border);
+  border-radius: 0;
+
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Time display */
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ===== Time display ===== */
 .display {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 3.2rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: #203a43;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
+
+  background: linear-gradient(90deg, #ffffff, #a6b7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Controls layout */
+/* ===== Controls ===== */
 .controls {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
 
-/* Buttons (common) */
+/* ===== Buttons ===== */
 .controls button {
   flex: 1;
-  padding: 10px 0;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  border: 1px solid transparent;
+  border-radius: 0;
+
   cursor: pointer;
-  transition: all 0.25s ease;
+  color: #0b0f1a;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    filter 0.15s ease;
+
+  cursor: pointer;
 }
 
-/* Start button */
+/* Start */
 .start-button {
-  background-color: #22c55e;
-  color: white;
+  background: linear-gradient(135deg, #2bff88, #1fd873);
+  border-color: #1fd873;
 }
 
 .start-button:hover {
-  background-color: #16a34a;
+  filter: brightness(1.05);
 }
 
-/* Stop button */
+/* Stop */
 .stop-button {
-  background-color: #ef4444;
-  color: white;
+  background: linear-gradient(135deg, #ff6a6a, #ff3d3d);
+  border-color: #ff3d3d;
 }
 
 .stop-button:hover {
-  background-color: #dc2626;
+  filter: brightness(1.05);
 }
 
-/* Reset button */
+/* Reset */
 .reset-button {
-  background-color: #3b82f6;
-  color: white;
+  background: linear-gradient(135deg, #6aa8ff, #3b82f6);
+  border-color: #3b82f6;
 }
 
 .reset-button:hover {
-  background-color: #2563eb;
+  filter: brightness(1.05);
 }
 
-/* Button press effect */
+/* Press feedback */
 .controls button:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
